@@ -36,8 +36,11 @@ function computerPlay() {
 let playerScore = 0;
 let computerScore = 0;
 
+const rockNoise = document.getElementById("rock-noise");
 document.getElementById("rock").addEventListener("click", function () {
   let result = playRound("rock", computerPlay());
+  rockNoise.currentTime = 0; // reset audio to start
+  rockNoise.play();
   if (result.startsWith("You win")) {
     playerScore++;
   } else if (result.startsWith("You lose")) {
@@ -50,8 +53,11 @@ document.getElementById("rock").addEventListener("click", function () {
   document.getElementById("result").textContent = result;
 });
 
+const paperNoise = document.getElementById("paper-noise");
 document.getElementById("paper").addEventListener("click", function () {
   let result = playRound("paper", computerPlay());
+  paperNoise.currentTime = 0; // reset audio to start
+  paperNoise.play();
   if (result.startsWith("You win")) {
     playerScore++;
   } else if (result.startsWith("You lose")) {
@@ -64,8 +70,11 @@ document.getElementById("paper").addEventListener("click", function () {
   document.getElementById("result").textContent = result;
 });
 
+const scissorsNoise = document.getElementById("scissors-noise");
 document.getElementById("scissors").addEventListener("click", function () {
   let result = playRound("scissors", computerPlay());
+  scissorsNoise.currentTime = 0; // reset audio to start
+  scissorsNoise.play();
   if (result.startsWith("You win")) {
     playerScore++;
   } else if (result.startsWith("You lose")) {
